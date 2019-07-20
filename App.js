@@ -4,15 +4,19 @@ import { Svg, Text, TSpan, G } from 'react-native-svg';
 
 const { width, height } = Dimensions.get('window');
 const AnimatedText = Animated.createAnimatedComponent(Text);
-const tinyWeight = Platform.OS === 'ios' ? 450 : 60;
+const ios = Platform.OS === 'ios';
 
 function getInitialState() {
   const anim = new Animated.Value(0);
   const oneTo1E3 = anim.interpolate({
     inputRange: [0, 1],
-    outputRange: [1, 1E3],
+    outputRange: [1, 1000],
   });
-  return { anim, oneTo1E3 };
+  const TINY5x3 = anim.interpolate({
+    inputRange: [0, 1],
+    outputRange: ios ? [450, 1000] : [2, 180],
+  });
+  return { anim, oneTo1E3, TINY5x3 };
 }
 
 export default class App extends Component {
@@ -28,7 +32,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { oneTo1E3 } = this.state;
+    const { oneTo1E3, TINY5x3 } = this.state;
     return (
       <View style={styles.container}>
         <Svg width={width} height={height} style={StyleSheet.absoluteFill} viewBox="40 0 700 700">
@@ -45,7 +49,7 @@ export default class App extends Component {
               <TSpan x={50} y={200}>Testing</TSpan>
               <TSpan x={50} y={400} fontFamily="IBMPlexSansVar">Testing</TSpan>
               <TSpan x={50} y={600} fontFamily="PublicSans-Thin_Regular">Testing</TSpan>
-              <TSpan x={50} y={800} fontFamily="TINY5x3" fontWeight={tinyWeight}>Testing</TSpan>
+              <TSpan x={50} y={800} fontFamily="TINY5x3" fontWeight={ios ? 450 : 60}>Testing</TSpan>
             </Text>
           </G>
         </Svg>
@@ -55,6 +59,8 @@ export default class App extends Component {
               <TSpan x={50} y={200}>Testing</TSpan>
               <TSpan x={50} y={400} fontFamily="IBMPlexSansVar">Testing</TSpan>
               <TSpan x={50} y={600} fontFamily="PublicSans-Thin_Regular">Testing</TSpan>
+            </AnimatedText>
+            <AnimatedText fontWeight={TINY5x3}>
               <TSpan x={50} y={800} fontFamily="TINY5x3">Testing</TSpan>
             </AnimatedText>
           </G>
