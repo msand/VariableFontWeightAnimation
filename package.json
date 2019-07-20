@@ -10,7 +10,7 @@
   "dependencies": {
     "react": "16.8.6",
     "react-native": "0.60.4",
-    "react-native-svg": "react-native-community/react-native-svg#bf0adb4"
+    "react-native-svg": "react-native-community/react-native-svg#ea82910"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
