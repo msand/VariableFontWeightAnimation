@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Dimensions, Animated } from 'react-native';
-import { Svg, Text, TSpan } from 'react-native-svg';
+import { Svg, Text, TSpan, G } from 'react-native-svg';
 
 const { width, height } = Dimensions.get('window');
 const AnimatedText = Animated.createAnimatedComponent(Text);
@@ -30,21 +30,23 @@ export default class App extends Component {
     const { oneTo1E3 } = this.state;
     return (
       <View style={styles.container}>
-        <Svg width={width} height={height} style={StyleSheet.absoluteFill} viewBox="0 0 70 70">
-          <Text fontSize={3}>
-            <TSpan x={10} y={10}>System font</TSpan>
-            <TSpan x={10} y={30}>IBMPlexSansVar</TSpan>
-            <TSpan x={10} y={50}>PublicSans-Thin_Regular</TSpan>
-            <TSpan x={10} y={70}>TINY5x3</TSpan>
+        <Svg width={width} height={height} style={StyleSheet.absoluteFill} viewBox="0 0 700 700">
+          <Text fontSize={30}>
+            <TSpan x={100} y={100}>System font</TSpan>
+            <TSpan x={100} y={300}>IBMPlexSansVar</TSpan>
+            <TSpan x={100} y={500}>PublicSans-Thin_Regular</TSpan>
+            <TSpan x={100} y={700}>TINY5x3</TSpan>
           </Text>
         </Svg>
-        <Svg width={width} height={height} style={StyleSheet.absoluteFill} viewBox="0 0 70 70">
-          <AnimatedText fontWeight={oneTo1E3}>
-            <TSpan x={10} y={20}>Testing</TSpan>
-            <TSpan x={10} y={40} fontFamily="IBMPlexSansVar">Testing</TSpan>
-            <TSpan x={10} y={60} fontFamily="PublicSans-Thin_Regular">Testing</TSpan>
-            <TSpan x={10} y={80} fontFamily="TINY5x3">Testing</TSpan>
-          </AnimatedText>
+        <Svg width={width} height={height} style={StyleSheet.absoluteFill} viewBox="0 0 700 700">
+          <G fontSize={90}>
+            <AnimatedText fontWeight={oneTo1E3}>
+              <TSpan x={100} y={200}>Testing</TSpan>
+              <TSpan x={100} y={400} fontFamily="IBMPlexSansVar">Testing</TSpan>
+              <TSpan x={100} y={600} fontFamily="PublicSans-Thin_Regular">Testing</TSpan>
+              <TSpan x={100} y={800} fontFamily="TINY5x3">Testing</TSpan>
+            </AnimatedText>
+          </G>
         </Svg>
       </View>
     );
