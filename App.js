@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { StyleSheet, View, Dimensions, Animated } from 'react-native';
 import { Svg, Text, TSpan, G } from 'react-native-svg';
 
@@ -18,7 +18,7 @@ function getInitialState() {
   return { anim, oneTo1E3, TINY5x3 };
 }
 
-export default class App extends Component {
+export default class App extends PureComponent {
   state = getInitialState();
 
   componentDidMount() {
@@ -34,33 +34,31 @@ export default class App extends Component {
     const { oneTo1E3, TINY5x3 } = this.state;
     return (
       <View style={styles.container}>
-        <Svg width={width} height={height} style={StyleSheet.absoluteFill} viewBox="40 0 700 700">
+        <Svg width={width} height={height} style={StyleSheet.absoluteFill} viewBox="-10 -30 700 700">
           <Text fontSize={30}>
-            <TSpan x={50} y={100}>System font</TSpan>
-            <TSpan x={50} y={300}>IBMPlexSansVar</TSpan>
-            <TSpan x={50} y={500}>PublicSans-Thin_Regular</TSpan>
-            <TSpan x={50} y={700}>TINY5x3</TSpan>
+            <TSpan x={0} y={0}>System font</TSpan>
+            <TSpan x={0} y={200}>IBMPlexSansVar</TSpan>
+            <TSpan x={0} y={400}>PublicSans-Thin_Regular</TSpan>
+            <TSpan x={0} y={600}>TINY5x3</TSpan>
           </Text>
-        </Svg>
-        <Svg width={width} height={height} style={StyleSheet.absoluteFill} viewBox="30 0 700 700">
-          <G fontSize={90}>
-            <Text fontWeight={100}>
-              <TSpan x={50} y={200}>Testing</TSpan>
-              <TSpan x={50} y={400} fontFamily="IBMPlexSansVar">Testing</TSpan>
-              <TSpan x={50} y={600} fontFamily="PublicSans-Thin_Regular">Testing</TSpan>
-              <TSpan x={50} y={800} fontFamily="TINY5x3" fontWeight={60}>Testing</TSpan>
+          <G transform="translate(10, 100)">
+            <Text fontSize={90} fontWeight={100}>
+              <TSpan x={0} y={0}>Testing</TSpan>
+              <TSpan x={0} y={200} fontFamily="IBMPlexSansVar">Testing</TSpan>
+              <TSpan x={0} y={400} fontFamily="PublicSans-Thin_Regular">Testing</TSpan>
+              <TSpan x={0} y={600} fontFamily="TINY5x3" fontWeight={60}>Testing</TSpan>
             </Text>
           </G>
         </Svg>
-        <Svg width={width} height={height} style={StyleSheet.absoluteFill} viewBox="-300 0 700 700">
-          <G fontSize={90}>
+        <Svg width={width} height={height} style={StyleSheet.absoluteFill} viewBox="-350 -30 700 700">
+          <G transform="translate(0, 100)" fontSize={90}>
             <AnimatedText fontWeight={oneTo1E3}>
-              <TSpan x={50} y={200}>Testing</TSpan>
-              <TSpan x={50} y={400} fontFamily="IBMPlexSansVar">Testing</TSpan>
-              <TSpan x={50} y={600} fontFamily="PublicSans-Thin_Regular">Testing</TSpan>
+              <TSpan x={0} y={0}>Testing</TSpan>
+              <TSpan x={0} y={200} fontFamily="IBMPlexSansVar">Testing</TSpan>
+              <TSpan x={0} y={400} fontFamily="PublicSans-Thin_Regular">Testing</TSpan>
             </AnimatedText>
             <AnimatedText fontWeight={TINY5x3}>
-              <TSpan x={50} y={800} fontFamily="TINY5x3">Testing</TSpan>
+              <TSpan x={0} y={600} fontFamily="TINY5x3">Testing</TSpan>
             </AnimatedText>
           </G>
         </Svg>
