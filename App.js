@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Dimensions, Animated, Platform } from 'react-native';
+import { StyleSheet, View, Dimensions, Animated } from 'react-native';
 import { Svg, Text, TSpan, G } from 'react-native-svg';
 
 const { width, height } = Dimensions.get('window');
 const AnimatedText = Animated.createAnimatedComponent(Text);
-const ios = Platform.OS === 'ios';
 
 function getInitialState() {
   const anim = new Animated.Value(0);
@@ -14,7 +13,7 @@ function getInitialState() {
   });
   const TINY5x3 = anim.interpolate({
     inputRange: [0, 1],
-    outputRange: ios ? [450, 1000] : [2, 180],
+    outputRange: [2, 300],
   });
   return { anim, oneTo1E3, TINY5x3 };
 }
@@ -49,7 +48,7 @@ export default class App extends Component {
               <TSpan x={50} y={200}>Testing</TSpan>
               <TSpan x={50} y={400} fontFamily="IBMPlexSansVar">Testing</TSpan>
               <TSpan x={50} y={600} fontFamily="PublicSans-Thin_Regular">Testing</TSpan>
-              <TSpan x={50} y={800} fontFamily="TINY5x3" fontWeight={ios ? 450 : 60}>Testing</TSpan>
+              <TSpan x={50} y={800} fontFamily="TINY5x3" fontWeight={60}>Testing</TSpan>
             </Text>
           </G>
         </Svg>

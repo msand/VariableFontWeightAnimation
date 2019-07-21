@@ -5118,9 +5118,9 @@ react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
   integrity sha512-aUk3bHfZ2bRSVFFbbeVS4i+lNPZr3/WM5jT2J5omUVV1zzcs1nAaf3l51ctA5FFvCRbhrH0bdAsRRQddFJZPtA==
 
-react-native-svg@react-native-community/react-native-svg#bf4ea34:
+react-native-svg@react-native-community/react-native-svg#8e9d355:
   version "9.5.3"
-  resolved "https://codeload.github.com/react-native-community/react-native-svg/tar.gz/bf4ea343bf84f2b7cb317620275b5413cb9dcdb9"
+  resolved "https://codeload.github.com/react-native-community/react-native-svg/tar.gz/8e9d355d743703f60b4054c6c44cba89bd586c91"
 
 react-native@0.60.4:
   version "0.60.4"
