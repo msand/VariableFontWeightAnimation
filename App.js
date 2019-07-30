@@ -13,7 +13,7 @@ import { Svg, Text, TSpan, G } from 'react-native-svg';
 const { width, height } = Dimensions.get('window');
 const AnimatedText = Animated.createAnimatedComponent(Text);
 
-class AnimatedFontWeight extends PureComponent {
+class AnimatedComponent extends PureComponent {
   render() {
     const { anim } = this.props;
     const oneTo1E3 = anim.interpolate({
@@ -54,7 +54,7 @@ class AnimatedFontWeight extends PureComponent {
   }
 }
 
-class VariableFontWeight extends PureComponent {
+class VariableComponent extends PureComponent {
   render() {
     const { value } = this.props;
     return (
@@ -79,17 +79,17 @@ class VariableFontWeight extends PureComponent {
           </TSpan>
         </Text>
         <G transform="translate(10, 100)">
-          <Text fontSize={90} fontWeight={value || 100}>
-            <TSpan x={0} y={0}>
+          <Text fontSize={90} inlineSize={value || 100} fill="blue" textAnchor="start">
+            <TSpan x={0} y={0} inlineSize={value || 200}>
               Testing
             </TSpan>
-            <TSpan x={0} y={200} fontFamily="IBMPlexSansVar">
+            <TSpan x={0} y={200} fontFamily="IBMPlexSansVar" inlineSize={value || 200}>
               Testing
             </TSpan>
-            <TSpan x={0} y={400} fontFamily="PublicSans-Thin_Regular">
+            <TSpan x={0} y={400} fontFamily="PublicSans-Thin_Regular" inlineSize={value || 200}>
               Testing
             </TSpan>
-            <TSpan x={0} y={600} fontFamily="TINY5x3" fontWeight={value || 60}>
+            <TSpan x={0} y={600} fontFamily="TINY5x3" inlineSize={value || 60} fontWeight={60} fill="blue">
               Testing
             </TSpan>
           </Text>
@@ -99,7 +99,7 @@ class VariableFontWeight extends PureComponent {
   }
 }
 
-class FontWeightSlider extends PureComponent {
+class TestSlider extends PureComponent {
   render() {
     return (
       <Slider
@@ -138,11 +138,11 @@ export default class App extends PureComponent {
     return (
       <View style={styles.container}>
         <TouchableOpacity onPress={this.toggle} style={styles.touchable}>
-          <VariableFontWeight value={value} />
-          <AnimatedFontWeight anim={anim} />
+          <AnimatedComponent anim={anim} />
+          <VariableComponent value={value} />
         </TouchableOpacity>
         <View style={styles.sliderView}>
-          <FontWeightSlider onValueChange={this.onValueChange} />
+          <TestSlider onValueChange={this.onValueChange} />
           <NativeText>{(value && +value.toFixed(3)) || ''}</NativeText>
         </View>
       </View>

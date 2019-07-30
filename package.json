@@ -11,7 +11,7 @@
     "@react-native-community/slider": "^2.0.0-rc.1",
     "react": "16.8.6",
     "react-native": "0.60.4",
-    "react-native-svg": "react-native-community/react-native-svg#8e9d355"
+    "react-native-svg": "react-native-community/react-native-svg#44b700e"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
